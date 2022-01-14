@@ -1,0 +1,38 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+}
+
+group 'me.dannly.sanic'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+    }
+    maven {
+        name 'google-api-services'
+        url 'https://google-api-client-libraries.appspot.com/mavenrepo'
+    }
+    google()
+}
+
+dependencies {
+    implementation 'net.dv8tion:JDA:4.2.0_252'
+    implementation 'com.sedmelluq:lavaplayer:1.3.77'
+    implementation 'net.oneandone.reflections8:reflections8:0.11.7'
+    implementation 'com.google.api-client:google-api-client:1.33.0'
+    implementation 'com.google.apis:google-api-services-youtube:v3-rev20210210-1.31.0'
+    implementation 'com.google.http-client:google-http-client-jackson2:1.41.0'
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.32.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
