@@ -32,7 +32,7 @@ class CommandInstance(
         }
 
     private fun setDescriptionAndUpdateMessage() {
-        lastEmbedBuilder = lastEmbedBuilder.setDescription("\n${answer.capitalize()}")
+        lastEmbedBuilder = lastEmbedBuilder.setDescription("\n${answer.replaceFirstChar { it.uppercase() }}")
         if(::imageURL.isInitialized)
             lastEmbedBuilder.setImage(imageURL)
         lastMessage.editMessage(lastEmbedBuilder.build()).queue()
@@ -55,7 +55,7 @@ class CommandInstance(
 
     fun replyWith(answer: String, imageURL: String? = null) {
         val currentTextPlusAnswer =
-            if (::lastEmbedBuilder.isInitialized) "${lastEmbedBuilder.descriptionBuilder.toString()}\n${answer.capitalize()}" else "${author.asMention} $answer"
+            if (::lastEmbedBuilder.isInitialized) "${lastEmbedBuilder.descriptionBuilder}\n${answer.replaceFirstChar { it.uppercase() }}" else "${author.asMention} $answer"
         this.answer = if (currentTextPlusAnswer.length > 2048) "${
             currentTextPlusAnswer.substring(
                 0,

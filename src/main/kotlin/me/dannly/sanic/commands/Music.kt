@@ -197,7 +197,7 @@ class Music : Command(
         commandInstance.data["manager"] = MusicManager.getManager(commandInstance.textChannel.guild.idLong)
         when(commandInstance.arguments.size) {
             in 2..Integer.MAX_VALUE -> {
-                when (commandInstance.arguments[0].toLowerCase()) {
+                when (commandInstance.arguments[0].lowercase()) {
                     "queue", "next", "play" -> processQueue(commandInstance, if (commandInstance.arguments[0].equals("next", true)) 0 else null)
                     "volume" -> adjustVolume(commandInstance)
                     "remove" -> removeSongFromQueue(commandInstance)
@@ -205,7 +205,7 @@ class Music : Command(
                 }
             }
             1 -> {
-                when (commandInstance.arguments[0].toLowerCase()) {
+                when (commandInstance.arguments[0].lowercase()) {
                     "skip" -> skipCurrentSong(commandInstance)
                     "stop" -> stopPlayer(commandInstance)
                     "list" -> showPlaylist(commandInstance)

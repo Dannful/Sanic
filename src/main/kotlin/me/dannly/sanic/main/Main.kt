@@ -11,7 +11,7 @@ import org.reflections8.Reflections
 class Main {
 
     private fun startJDA() {
-        bot = JDABuilder.createDefault(AuthToken.TOKEN)
+        bot = JDABuilder.createDefault(AuthToken.DISCORD_TOKEN)
             .addEventListeners(CommandInterpreter()).build()
         bot.presence.activity = defaultActivity
     }
